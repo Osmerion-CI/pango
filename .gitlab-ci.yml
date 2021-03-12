@@ -95,11 +95,11 @@ macos:
     - macos
   needs: []
   before_script:
+    - bash .gitlab-ci/show-execution-environment.sh
     - pip3 install --user meson==0.56
     - pip3 install --user ninja
   script:
-    - meson -Dintrospection=disabled
-            -Dcpp_std=c++11
+    - meson -Dcpp_std=c++11
             -Dpixman:tests=disabled
             _build
     - ninja -C _build
